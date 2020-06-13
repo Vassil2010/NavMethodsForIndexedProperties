@@ -1,2 +1,2 @@
-# Navigation-methods-for-InterSystems-Objects-Indexed-properties
+# NavMethodsForIndexedProperties
 Navigation methods for InterSystems Objects Indexed properties
