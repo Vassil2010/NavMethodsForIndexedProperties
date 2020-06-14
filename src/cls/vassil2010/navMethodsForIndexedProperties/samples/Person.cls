@@ -42,6 +42,15 @@ ClassMethod SamplesWithNoUniqueIndex() As %Status
     quit $$$OK
 }
 
+ClassMethod PhoneIndexExample()
+{
+    set person = ##class(vassil2010.navMethodsForIndexedProperties.samples.Person).PhoneIndexOpen("880-555-4323")
+    While $IsObject(person) {
+        write !, person.Name
+        set person = person.PhoneIndexNext("880-555-4323")
+    }
+}
+
 Storage Default
 {
 <Data name="PersonDefaultData">
