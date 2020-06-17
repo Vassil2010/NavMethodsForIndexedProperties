@@ -1,13 +1,6 @@
 Class vassil2010.navMethodsForIndexedProperties.GenNavMethods Extends %RegisteredObject
 {
 
-ClassMethod OnCompile() [ CodeMode = generator, Internal, ServerOnly = 1 ]
-{
-  s tSC=$$$OK
-  set tSC = ##class(vassil2010.navMethodsForIndexedProperties.GenNavMethods).GenIndexMethods()
-  quit tSC
-}
-
 ClassMethod GenIndexMethods() As %Status
 {
 
@@ -21,7 +14,6 @@ ClassMethod GenIndexMethods() As %Status
     &sql(open ind)
     &sql(fetch ind)
     while SQLCODE=0 {
-        write !,qClassName," - ",qIndexName, " - ",qProperties 
         set Method  = ..GetOpenMethodDefinition(qIndexName)    
         Do ClassDef.Methods.Insert(Method)
         set Method  = ..GetNextMethodDefinition(qIndexName)    
