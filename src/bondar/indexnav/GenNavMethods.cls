@@ -1,10 +1,10 @@
-Class vassil2010.navMethodsForIndexedProperties.GenNavMethods Extends %RegisteredObject
+Class bondar.indexnav.GenNavMethods Extends %RegisteredObject
 {
 
 ClassMethod GenIndexMethods() As %Status
 {
 
-    Set ClassDef=##class(%Dictionary.ClassDefinition).%OpenId("vassil2010.navMethodsForIndexedProperties.NavMethodsForIndexedProperties")
+    Set ClassDef=##class(%Dictionary.ClassDefinition).%OpenId("bondar.indexnav.IndexNav")
     do ClassDef.Methods.Clear()
 
     set (qClassName,qIndexName,qProperties)=""
@@ -31,7 +31,7 @@ ClassMethod GenIndexMethods() As %Status
     &sql(close ind)
     Set sc=ClassDef.%Save()
     write $System.Status.GetErrorText(sc)
-    Set sc=$System.OBJ.Compile("vassil2010.navMethodsForIndexedProperties.NavMethodsForIndexedProperties","fko1-d")
+    Set sc=$System.OBJ.Compile("bondar.indexnav.IndexNav","fko1-d")
     write $System.Status.GetErrorText(sc)
 
     quit $$$OK
@@ -220,103 +220,4 @@ ClassMethod GetTableName(ClassName) As %Status
     Return $Replace(ClassName,".","_",,$Length(ClassName,".")-2)
 }
 
-/*
-ClassMethod PhoneIndexOpen(K1) As %RegisteredObject
-{
-    set return = $$$NULLOREF
-    &sql(SELECT %ID INTO :id FROM vassil2010_navMethodsForIndexedProperties_samples.Person 
-        WHERE (:K1 is not null and Phone = :K1) OR (:K1 IS NULL AND Phone IS NULL) order by Id)
-    if SQLCODE=0 { set return = ##class(vassil2010.navMethodsForIndexedProperties.samples.Person).%OpenId(id)}
-    Quit return
-}
-
-Method PhoneIndexNext(K1) As %RegisteredObject
-{
-    set return = $$$NULLOREF
-    &sql(SELECT List(%ID) INTO :idList FROM vassil2010_navMethodsForIndexedProperties_samples.Person 
-        WHERE (:K1 is not null and Phone = :K1) OR (:K1 IS NULL AND Phone IS NULL) order by Id)
-    set curId = ..%Id()
-    for i = 1:1:$Length(idList,",") {
-        if $Piece(idList,",",i) = curId {
-            set return = ##class(vassil2010.navMethodsForIndexedProperties.samples.Person).%OpenId($Piece(idList,",",i+1))    
-        }
-    }
-    Quit return
-}
-
-Method PhoneIndexPrevious(K1) As %RegisteredObject
-{
-    set return = $$$NULLOREF
-    &sql(SELECT List(%ID) INTO :idList FROM vassil2010_navMethodsForIndexedProperties_samples.Person 
-        WHERE (:K1 is not null and Phone = :K1) OR (:K1 IS NULL AND Phone IS NULL)
-        order by Id)
-    set curId = ..%Id()
-    for i = 1:1:$Length(idList,",") {
-        if $Piece(idList,",",i) = curId {
-            set return = ##class(vassil2010.navMethodsForIndexedProperties.samples.Person).%OpenId($Piece(idList,",",i-1))    
-        }
-    }
-    Quit return
-}
-
-Method PhoneIndexFirst(K1) As %RegisteredObject
-{
-    set return = $$$NULLOREF
-    set curId = ""
-    &sql(SELECT %ID INTO :curId FROM vassil2010_navMethodsForIndexedProperties_samples.Person 
-        WHERE (:K1 is not null and Phone = :K1) OR (:K1 IS NULL AND Phone IS NULL)
-        order by Id)
-    set return = ##class(vassil2010.navMethodsForIndexedProperties.samples.Person).%OpenId(curId)    
-    Quit return
-}
-
-Method PhoneIndexLast(K1) As %RegisteredObject
-{
-    set return = $$$NULLOREF
-    set curId = ""
-    &sql(SELECT %ID INTO :curId FROM vassil2010_navMethodsForIndexedProperties_samples.Person 
-        WHERE (:K1 is not null and Phone = :K1) OR (:K1 IS NULL AND Phone IS NULL)
-        order by Id desc)
-    set return = ##class(vassil2010.navMethodsForIndexedProperties.samples.Person).%OpenId(curId)    
-    Quit return
-}
-
-ClassMethod ListProperties() [ CodeMode = objectgenerator ]
-{
-    For i = 1:1:%compiledclass.Properties.Count() {
-        Set prop = %compiledclass.Properties.GetAt(i).Name
-        Do %code.WriteLine(" Write """ _ prop _ """,!")
-    }
-    Do %code.WriteLine(" Quit")
-    Quit $$$OK
-}
-
-ClassMethod Method1()
-{
-    Set ClassDef=##class(%Dictionary.ClassDefinition).%OpenId("vassil2010.navMethodsForIndexedProperties.samples.Person")
-    
-    
-    
-    Set Method=##class(%Dictionary.MethodDefinition).%New()
-    Set Method.Name="GenMethod"
-    Set Method.FormalSpec=""
-    Set Method.ReturnType="%Status"
-    Set Method.Private=0
-    Set Method.ClassMethod=1
-    
-
-    Do Method.Implementation.WriteLine(" S a=3")
-    Do Method.Implementation.WriteLine(" S b=5")
-    Do Method.Implementation.WriteLine(" W (a*b)")
-    Do Method.Implementation.WriteLine(" Q 1")
-    Do ClassDef.Methods.Insert(Method)
-
-    
-    Set sc=ClassDef.%Save()
-    
-    // Set sc=$System.OBJ.Compile(..ClassDef,"fko1-d")
-
-    Quit $$$OK
-}
-*/
 }

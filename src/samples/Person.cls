@@ -1,7 +1,7 @@
 Include %occKeyword
 
 /// 
-Class samples.Person Extends (%Persistent, vassil2010.navMethodsForIndexedProperties.NavMethodsForIndexedProperties, %Populate)
+Class samples.Person Extends (%Persistent, bondar.indexnav.IndexNav, %Populate)
 {
 
 Index SerialNumberIndex On SerialNumber [ Unique ];
@@ -57,10 +57,10 @@ ClassMethod PhoneIndexExample()
 
 ClassMethod TitleIndexExample()
 {
-    set person = ..TitleIndexOpen("Laboratory Developer")
+    set person = ..TitleIndexOpen("Associate Accountant")
     While $IsObject(person) {
         write !, person.Name
-        set person = person.TitleIndexNext("Laboratory Developer")
+        set person = person.TitleIndexNext("Associate Accountant")
     }
 }
 

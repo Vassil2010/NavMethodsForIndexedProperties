@@ -27,11 +27,11 @@ While $IsObject(person) {
 # Install:
 
 1. Import v*.*-export.xml in your project
-2. Add to persistent classes Extends vassil2010.navMethodsForIndexedProperties.NavMethodsForIndexedProperties
+2. Add to persistent classes Extends bondar.indexnav.IndexNav
 
 Example: 
 ```
-Class samples.Person Extends (%Persistent, vassil2010.navMethodsForIndexedProperties.NavMethodsForIndexedProperties, %Populate)
+Class samples.Person Extends (%Persistent, bondar.indexnav.IndexNav, %Populate)
 ```
 
 3. Compile the project
