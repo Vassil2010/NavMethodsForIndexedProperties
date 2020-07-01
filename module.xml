@@ -2,7 +2,7 @@
 <Export generator="Cache" version="25">
   <Document name="bondar-nav.ZPM">
     <Module>
-      <Name>nav-methods-for-indexed-properties</Name>
+      <Name>bondar-nav</Name>
       <Version>1.0.1</Version>
       <Packaging>module</Packaging>
       <SourcesRoot>src</SourcesRoot>

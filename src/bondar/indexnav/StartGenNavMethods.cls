@@ -1,4 +1,4 @@
-Class bondar.indexnav.StartGenNavMethods [ DependsOn = (bondar.indexnav.NavMethodsForIndexedProperties, bondar.indexnav.GenNavMethods) ]
+Class bondar.indexnav.StartGenNavMethods [ DependsOn = (bondar.indexnav.IndexNav, bondar.indexnav.GenNavMethods) ]
 {
 
 ClassMethod OnCompile() [ CodeMode = generator, Internal, ServerOnly = 1 ]
