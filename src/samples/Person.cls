@@ -55,12 +55,12 @@ ClassMethod PhoneIndexExample()
     }
 }
 
-ClassMethod TitleIndexExample()
+ClassMethod NameIndexExample()
 {
-    set person = ..TitleIndexOpen("Associate Accountant")
+    set person = ..NameIndexOpen("Drabek")
     While $IsObject(person) {
-        write !, person.Name
-        set person = person.TitleIndexNext("Associate Accountant")
+        write !, person.SerialNumber
+        set person = person.NameIndexNext("Drabek")
     }
 }
 

@@ -26,12 +26,13 @@ While $IsObject(person) {
 
 # Install:
 
-1. Import v*.*-export.xml in your project
-2. Add to persistent classes Extends bondar.indexnav.IndexNav
+1. USER> zpm
+2. zpm: USER>install bondar-nav
+3. Add to persistent classes Extends bondar.indexnav.IndexNav
 
 Example: 
 ```
 Class samples.Person Extends (%Persistent, bondar.indexnav.IndexNav, %Populate)
 ```
 
-3. Compile the project
+4. Compile the project
