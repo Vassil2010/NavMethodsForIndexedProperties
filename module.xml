@@ -3,7 +3,8 @@
   <Document name="bondar-nav.ZPM">
     <Module>
       <Name>bondar-nav</Name>
-      <Version>1.0.1</Version>
+      <Version>1.0.2</Version>
+      <Description>Navigation methods for InterSystems Objects Indexed properties</Description>
       <Packaging>module</Packaging>
       <SourcesRoot>src</SourcesRoot>
       <Resource Name="bondar.PKG"/>
